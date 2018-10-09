@@ -10,7 +10,7 @@ if (function_exists('apcu_add') && !function_exists('apc_add')) {
 if (function_exists('apcu_cache_info') && !function_exists('apc_cache_info')) {
     function apc_cache_info($cache_type = "", $limited = false)
     {
-        return apcu_cache_info($cache_type, $limited);
+        return $cache_type == 'user' ? apcu_cache_info($limited) : FALSE;
     }
 }
 
